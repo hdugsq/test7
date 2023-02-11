@@ -7,7 +7,7 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-@Configuration
+@Configuration//newsdjjd
 @MapperScan("com.gsq.springboot.mapper")//注入容器
 public class MybatisPlusConfig {
     @Bean

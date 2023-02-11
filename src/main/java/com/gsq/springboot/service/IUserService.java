@@ -19,4 +19,6 @@ public interface IUserService extends IService<User> {
     UserDTO login(UserDTO dto);
 
     String register(User user);
+
+    User getByPhone(String s);
 }

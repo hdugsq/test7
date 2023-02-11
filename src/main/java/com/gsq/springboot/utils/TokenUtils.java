@@ -6,6 +6,7 @@ package com.gsq.springboot.utils;
 
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.util.StrUtil;
+import cn.hutool.json.JSONUtil;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.gsq.springboot.entity.User;
@@ -34,7 +35,6 @@ public class TokenUtils {
                 .withExpiresAt(DateUtil.offsetHour(new Date(),2))  //有效时间2小时
                 .sign(Algorithm.HMAC256(sign));  //密钥
     }
-
 
     public static User getCurrentUser() {
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();

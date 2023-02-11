@@ -11,6 +11,8 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.gsq.springboot.utils.TokenUtils;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+
 /**
  * <p>
  *  服务实现类
@@ -21,6 +23,8 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IUserService {
+    @Resource
+    private UserMapper userMapper;
     @Override
     public UserDTO login(UserDTO dto){
         QueryWrapper<User> queryWrapper=new QueryWrapper<>();
@@ -53,5 +57,12 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         } catch (Exception e) {
             return Constants.CODE_500;
         }
+    }
+
+    @Override
+    public User getByPhone(String s) {
+        User byPhone = userMapper.getByPhone(s);
+        System.out.println(byPhone);
+        return byPhone;
     }
 }
